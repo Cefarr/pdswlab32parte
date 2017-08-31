@@ -12,9 +12,11 @@ import java.util.logging.Logger;
  *
  * @author hcadavid
  */
-public class UTF8EncodingValidator{
+public class UTF8EncodingValidator implements PersEncod{
 
-    public boolean validateRequiredEncoding(String text) {
+//    public boolean validateRequiredEncoding(String text) {
+    
+    public boolean validateRequired(String text){
         LOG.info("Validating UTF8-Enconding for text....");
         return new Random(System.currentTimeMillis()).nextBoolean();        
     }

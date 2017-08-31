@@ -11,10 +11,12 @@ import java.util.logging.Logger;
  *
  * @author hcadavid
  */
-public class UnicodeEncodingValidator{
+public class UnicodeEncodingValidator implements PersEncod{
 
 
-    public boolean validateEncoding(String text) {
+    //public boolean validateEncoding(String text) {
+    @Override
+    public boolean validateRequired(String text){
         LOG.info("Validating UNICODE-Enconding for text....");
         return true;
     }
