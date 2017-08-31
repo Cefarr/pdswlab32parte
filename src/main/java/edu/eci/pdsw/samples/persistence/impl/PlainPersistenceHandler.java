@@ -5,17 +5,25 @@
  */
 package edu.eci.pdsw.samples.persistence.impl;
 
+import com.google.inject.AbstractModule;
 import edu.eci.pdsw.samples.persistence.PersistenceHandler;
 import java.util.logging.Logger;
-
+import static com.google.inject.Guice.createInjector;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import edu.eci.pdsw.samples.services.WordProcessorServices;
+import edu.eci.pdsw.samples.services.impl.WordProcessorServicesImpl;
+import edu.eci.pdsw.samples.spelling.TypoCorrector;
+import edu.eci.pdsw.samples.spelling.impl.LocalTypoCorrector;
 /**
  *
  * @author hcadavid
  */
 public class PlainPersistenceHandler implements PersistenceHandler{
-
-    UTF8EncodingValidator encodingValidator=new UTF8EncodingValidator();
     
+    @Inject
+    UTF8EncodingValidator encodingValidator;
+   
     @Override
     public void save(String content, String fileName) {
         
