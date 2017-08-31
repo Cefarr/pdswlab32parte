@@ -14,6 +14,7 @@ import edu.eci.pdsw.samples.persistence.PersistenceHandler;
 import edu.eci.pdsw.samples.persistence.impl.PlainPersistenceHandler;
 import edu.eci.pdsw.samples.persistence.impl.SerializationPersistenceHandler;
 import edu.eci.pdsw.samples.spelling.TypoCorrector;
+import edu.eci.pdsw.samples.spelling.impl.LocalTypoCorrector;
 import edu.eci.pdsw.samples.spelling.impl.OnlineTypoCorrector;
 
 /**
@@ -32,8 +33,8 @@ public class WordProcessorServicesFactory {
 
                     
                     protected void configure() {
-                        bind(TypoCorrector.class).to(OnlineTypoCorrector.class);
-                        bind(PersistenceHandler.class).to(SerializationPersistenceHandler.class);
+                        bind(TypoCorrector.class).to(LocalTypoCorrector.class);
+                        bind(PersistenceHandler.class).to(PlainPersistenceHandler.class);
                         bind(WordProcessorServices.class).to(WordProcessorServicesImpl.class);
                     }
 
