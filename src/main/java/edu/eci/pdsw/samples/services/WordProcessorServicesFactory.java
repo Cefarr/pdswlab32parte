@@ -36,11 +36,15 @@ public class WordProcessorServicesFactory {
 
                     
                     protected void configure() {
-                        bind(TypoCorrector.class).to(LocalTypoCorrector.class);
+                        //bind(TypoCorrector.class).to(LocalTypoCorrector.class); 
+                        bind(TypoCorrector.class).to(OnlineTypoCorrector.class); //6 punto 3 lab c.
+                        //bind(PersistenceHandler.class).to(PlainPersistenceHandler.class);
+                        //bind(PersistenceHandler.class).to(SerializationPersistenceHandler.class);//6 punto 3 lab a.
                         bind(PersistenceHandler.class).to(PlainPersistenceHandler.class);
-                        bind(WordProcessorServices.class).to(WordProcessorServicesImpl.class);
                         
-                        bind(PersEncod.class).to(UTF8EncodingValidator.class);
+                        bind(WordProcessorServices.class).to(WordProcessorServicesImpl.class);
+                        bind(PersEncod.class).to(UTF8EncodingValidator.class);//6 punto 3 lab c.
+                        //bind(PersEncod.class).to(UnicodeEncodingValidator.class);//pUNTO 6 3 LAB b.
                         
                     }
 
